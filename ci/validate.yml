@@ -1,0 +1,26 @@
+name: Validate
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  worker-and-distribution:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npx wrangler deploy --dry-run --config wrangler.test.toml
+        env:
+          WRANGLER_SEND_METRICS: "false"
+      - run: npm test
+      - run: npm run check:distribution
+      - run: npm run test:autosync
+      - run: npm run setup:dry -- --wiki-dir templates/vault

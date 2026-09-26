@@ -1,0 +1,149 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A10000000000000000000001 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000001 /* APIClient.swift */; };
+		A10000000000000000000002 /* AppIntents.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000002 /* AppIntents.swift */; };
+		A10000000000000000000003 /* BrainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000003 /* BrainStore.swift */; };
+		A10000000000000000000004 /* KeychainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000004 /* KeychainStore.swift */; };
+		A10000000000000000000005 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000005 /* Models.swift */; };
+		A10000000000000000000006 /* SecondBrainSiriApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000006 /* SecondBrainSiriApp.swift */; };
+		A10000000000000000000007 /* SpotlightIndexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000007 /* SpotlightIndexer.swift */; };
+		A10000000000000000000008 /* SummaryEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000008 /* SummaryEngine.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A20000000000000000000001 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		A20000000000000000000002 /* AppIntents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntents.swift; sourceTree = "<group>"; };
+		A20000000000000000000003 /* BrainStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainStore.swift; sourceTree = "<group>"; };
+		A20000000000000000000004 /* KeychainStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainStore.swift; sourceTree = "<group>"; };
+		A20000000000000000000005 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		A20000000000000000000006 /* SecondBrainSiriApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondBrainSiriApp.swift; sourceTree = "<group>"; };
+		A20000000000000000000007 /* SpotlightIndexer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotlightIndexer.swift; sourceTree = "<group>"; };
+		A20000000000000000000008 /* SummaryEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryEngine.swift; sourceTree = "<group>"; };
+		A20000000000000000000009 /* SecondBrainSiri.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SecondBrainSiri.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A20000000000000000000010 /* SecondBrainSiri-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SecondBrainSiri-Info.plist"; sourceTree = "<group>"; };
+		A20000000000000000000011 /* SecondBrainSiri.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SecondBrainSiri.entitlements; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A30000000000000000000001 /* Frameworks */ = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A40000000000000000000001 = {
+			isa = PBXGroup;
+			children = (
+				A40000000000000000000002 /* SecondBrainSiri */,
+				A40000000000000000000003 /* Config */,
+				A40000000000000000000004 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A40000000000000000000002 /* SecondBrainSiri */ = {
+			isa = PBXGroup;
+			children = (
+				A20000000000000000000001 /* APIClient.swift */,
+				A20000000000000000000002 /* AppIntents.swift */,
+				A20000000000000000000003 /* BrainStore.swift */,
+				A20000000000000000000004 /* KeychainStore.swift */,
+				A20000000000000000000005 /* Models.swift */,
+				A20000000000000000000006 /* SecondBrainSiriApp.swift */,
+				A20000000000000000000007 /* SpotlightIndexer.swift */,
+				A20000000000000000000008 /* SummaryEngine.swift */,
+			);
+			path = Sources/SecondBrainSiri;
+			sourceTree = SOURCE_ROOT;
+		};
+		A40000000000000000000003 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				A20000000000000000000010 /* SecondBrainSiri-Info.plist */,
+				A20000000000000000000011 /* SecondBrainSiri.entitlements */,
+			);
+			path = Config;
+			sourceTree = SOURCE_ROOT;
+		};
+		A40000000000000000000004 /* Products */ = {
+			isa = PBXGroup;
+			children = (A20000000000000000000009 /* SecondBrainSiri.app */);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A50000000000000000000001 /* SecondBrainSiri */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A60000000000000000000002 /* Build configuration list for PBXNativeTarget "SecondBrainSiri" */;
+			buildPhases = (
+				A70000000000000000000001 /* Sources */,
+				A30000000000000000000001 /* Frameworks */,
+				A70000000000000000000002 /* Resources */,
+			);
+			buildRules = ();
+			dependencies = ();
+			name = SecondBrainSiri;
+			productName = SecondBrainSiri;
+			productReference = A20000000000000000000009 /* SecondBrainSiri.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A80000000000000000000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = { BuildIndependentTargetsInParallel = 1; LastSwiftUpdateCheck = 2660; LastUpgradeCheck = 2660; TargetAttributes = { A50000000000000000000001 = { CreatedOnToolsVersion = 26.6; }; }; };
+			buildConfigurationList = A60000000000000000000001 /* Build configuration list for PBXProject "SecondBrainSiri" */;
+			compatibilityVersion = "Xcode 16.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (en, it, Base);
+			mainGroup = A40000000000000000000001;
+			productRefGroup = A40000000000000000000004 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (A50000000000000000000001 /* SecondBrainSiri */);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A70000000000000000000002 /* Resources */ = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A70000000000000000000001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A10000000000000000000001 /* APIClient.swift in Sources */,
+				A10000000000000000000002 /* AppIntents.swift in Sources */,
+				A10000000000000000000003 /* BrainStore.swift in Sources */,
+				A10000000000000000000004 /* KeychainStore.swift in Sources */,
+				A10000000000000000000005 /* Models.swift in Sources */,
+				A10000000000000000000006 /* SecondBrainSiriApp.swift in Sources */,
+				A10000000000000000000007 /* SpotlightIndexer.swift in Sources */,
+				A10000000000000000000008 /* SummaryEngine.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		A90000000000000000000001 /* Debug */ = {isa = XCBuildConfiguration; buildSettings = { ALWAYS_SEARCH_USER_PATHS = NO; CLANG_ENABLE_MODULES = YES; CLANG_ENABLE_OBJC_ARC = YES; DEBUG_INFORMATION_FORMAT = dwarf; ENABLE_TESTABILITY = YES; GCC_C_LANGUAGE_STANDARD = gnu17; SWIFT_OPTIMIZATION_LEVEL = "-Onone"; }; name = Debug; };
+		A90000000000000000000002 /* Release */ = {isa = XCBuildConfiguration; buildSettings = { ALWAYS_SEARCH_USER_PATHS = NO; CLANG_ENABLE_MODULES = YES; CLANG_ENABLE_OBJC_ARC = YES; DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym"; GCC_C_LANGUAGE_STANDARD = gnu17; SWIFT_COMPILATION_MODE = wholemodule; SWIFT_OPTIMIZATION_LEVEL = "-O"; }; name = Release; };
+		A90000000000000000000003 /* Debug */ = {isa = XCBuildConfiguration; buildSettings = { ARCHS = arm64; CODE_SIGN_ENTITLEMENTS = Config/SecondBrainSiri.entitlements; CODE_SIGN_STYLE = Automatic; COMBINE_HIDPI_IMAGES = YES; CURRENT_PROJECT_VERSION = 1; GENERATE_INFOPLIST_FILE = NO; INFOPLIST_FILE = Config/SecondBrainSiri-Info.plist; LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks"; MACOSX_DEPLOYMENT_TARGET = 27.0; MARKETING_VERSION = 0.1.0; PRODUCT_BUNDLE_IDENTIFIER = org.example.secondbrain.replica; PRODUCT_NAME = "$(TARGET_NAME)"; SDKROOT = macosx; SWIFT_STRICT_CONCURRENCY = complete; SWIFT_VERSION = 6.0; SECOND_BRAIN_SERVER_URL = "https://second-brain.invalid"; }; name = Debug; };
+		A90000000000000000000004 /* Release */ = {isa = XCBuildConfiguration; buildSettings = { ARCHS = arm64; CODE_SIGN_ENTITLEMENTS = Config/SecondBrainSiri.entitlements; CODE_SIGN_STYLE = Automatic; COMBINE_HIDPI_IMAGES = YES; CURRENT_PROJECT_VERSION = 1; GENERATE_INFOPLIST_FILE = NO; INFOPLIST_FILE = Config/SecondBrainSiri-Info.plist; LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks"; MACOSX_DEPLOYMENT_TARGET = 27.0; MARKETING_VERSION = 0.1.0; PRODUCT_BUNDLE_IDENTIFIER = org.example.secondbrain.replica; PRODUCT_NAME = "$(TARGET_NAME)"; SDKROOT = macosx; SWIFT_STRICT_CONCURRENCY = complete; SWIFT_VERSION = 6.0; SECOND_BRAIN_SERVER_URL = "https://second-brain.invalid"; }; name = Release; };
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A60000000000000000000001 /* Build configuration list for PBXProject "SecondBrainSiri" */ = {isa = XCConfigurationList; buildConfigurations = (A90000000000000000000001 /* Debug */, A90000000000000000000002 /* Release */); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+		A60000000000000000000002 /* Build configuration list for PBXNativeTarget "SecondBrainSiri" */ = {isa = XCConfigurationList; buildConfigurations = (A90000000000000000000003 /* Debug */, A90000000000000000000004 /* Release */); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+/* End XCConfigurationList section */
+	};
+	rootObject = A80000000000000000000001 /* Project object */;
+}

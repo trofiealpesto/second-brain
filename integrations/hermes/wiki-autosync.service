@@ -1,0 +1,10 @@
+[Unit]
+Description=Sync this operator's private knowledge vault
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=second-brain
+EnvironmentFile=/etc/second-brain/autosync.env
+ExecStart=/usr/local/lib/second-brain/wiki-autosync.sh

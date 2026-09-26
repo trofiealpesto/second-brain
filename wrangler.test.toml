@@ -1,0 +1,40 @@
+name = "second-brain-test"
+main = "src/worker.ts"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat", "global_fetch_strictly_public"]
+
+[vars]
+WEBHOOK_SECRET = "test-webhook-secret"
+GITHUB_TOKEN = "test-github-token"
+GITHUB_CLIENT_ID = "test-github-client-id"
+GITHUB_CLIENT_SECRET = "test-github-client-secret"
+COOKIE_ENCRYPTION_KEY = "test-cookie-encryption-key-32-bytes"
+GITHUB_TOKEN_EXPIRY = "2099-01-01T00:00:00Z"
+AUTOMATION_API_TOKEN = "test-automation-token"
+ALLOWED_GITHUB_LOGINS = "example-user"
+WIKI_REPO_OWNER = "example-user"
+WIKI_REPO_NAME = "test-vault"
+WIKI_BRANCH = "main"
+
+[[r2_buckets]]
+binding = "RAW_BUCKET"
+bucket_name = "second-brain-raw"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "second-brain-test"
+database_id = "test"
+migrations_dir = "migrations"
+
+[[kv_namespaces]]
+binding = "OAUTH_KV"
+id = "test-kv"
+
+[durable_objects]
+bindings = [
+  { name = "SECOND_BRAIN_MCP", class_name = "SecondBrainMCP" }
+]
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["SecondBrainMCP"]

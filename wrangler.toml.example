@@ -1,0 +1,61 @@
+name = "second-brain-example"
+main = "src/worker.ts"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat", "global_fetch_strictly_public"]
+
+# Replace example values with YOUR instance. Never point these at someone else's vault.
+[vars]
+WIKI_REPO_OWNER = "YOUR_GITHUB_LOGIN"
+WIKI_REPO_NAME = "YOUR_PRIVATE_VAULT_REPO"
+WIKI_BRANCH = "main"
+ALLOWED_GITHUB_LOGINS = "YOUR_GITHUB_LOGIN"
+# Optional token-expiry issues: enable BOTH and grant Issues:write on this repo.
+# ALERT_REPO_OWNER = "YOUR_GITHUB_LOGIN"
+# ALERT_REPO_NAME = "YOUR_ALERT_REPO"
+
+[[r2_buckets]]
+binding = "RAW_BUCKET"
+bucket_name = "second-brain-example-raw"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "second-brain-example"
+database_id = "<your-d1-database-id>"
+migrations_dir = "migrations"
+
+[[vectorize]]
+binding = "VECTORIZE"
+index_name = "second-brain-example-embeddings"
+
+[ai]
+binding = "AI"
+
+# OAuth — KV for state/CSRF tokens
+[[kv_namespaces]]
+binding = "OAUTH_KV"
+id = "<your-kv-namespace-id>"
+
+# Durable Object for McpAgent
+[durable_objects]
+bindings = [
+  { name = "SECOND_BRAIN_MCP", class_name = "SecondBrainMCP" }
+]
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["SecondBrainMCP"]
+
+# OAuth secrets (set via `wrangler secret put`):
+# GITHUB_CLIENT_ID
+# GITHUB_CLIENT_SECRET
+# COOKIE_ENCRYPTION_KEY
+# AUTOMATION_API_TOKEN (bootstrap and non-interactive API; not an MCP login token)
+
+# GitHub webhook sync secrets (set via `wrangler secret put`):
+# WEBHOOK_SECRET
+# GITHUB_TOKEN
+# GITHUB_TOKEN_EXPIRY (optional ISO date; used only for expiry reminders)
+
+# Projection retries every five minutes; optional token reminder daily at 09:00 UTC.
+[triggers]
+crons = ["*/5 * * * *", "0 9 * * *"]
