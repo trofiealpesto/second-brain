@@ -49,7 +49,7 @@ OAuth flow in Claude/ChatGPT/Siri. Record live acceptance separately.
 
 ## Distribution review
 
-- Keep the repository private until upstream redistribution terms are recorded.
+- Preserve the original author's credit in README.md and the component provenance.
 - Inspect tracked files/history for secrets and personal data, not just `.gitignore`.
 - Confirm no deploy/release/signing workflow, installed service, or external webhook
   connects this checkout to an existing installation.

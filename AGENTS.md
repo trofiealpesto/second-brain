@@ -10,4 +10,4 @@
 - CI validates only. Do not add automatic deploy, signing, release, or installation jobs.
 - Runtime API/tool compatibility is documented in docs/api.md. New features go
   in BACKLOG.md until separately requested.
-- Read docs/provenance.md before licensing or publishing any derived code.
+- Preserve the upstream credit in README.md and the component history in docs/provenance.md.

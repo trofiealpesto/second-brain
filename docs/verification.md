@@ -64,5 +64,4 @@ mocks/fallbacks, not a live Workers AI/Vectorize quality evaluation.
 
 Before calling a new installation fully accepted, complete the
 [fresh-instance checklist](validation.md#fresh-instance-acceptance) with dedicated
-resources and credentials. Public distribution additionally requires resolving
-[upstream licensing](provenance.md#licensing-gate).
+resources and credentials.

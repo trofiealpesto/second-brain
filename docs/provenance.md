@@ -1,4 +1,4 @@
-# Provenance and distribution status
+# Component provenance
 
 Prepared on 2026-09-27 as an independent, reusable project. Original Git histories
 and operational secrets were not imported. Personal source repositories and the
@@ -38,18 +38,8 @@ for runtime changes. New English guides, synthetic templates, isolated integrati
 examples, compatibility tests, and the feature backlog were prepared for this copy.
 Legacy deployment notes and stale Gitea/local-MCP instructions were not imported.
 
-## Licensing gate
+## Credits
 
-At preparation time the original Worker did not expose a LICENSE file or a
-licensing declaration in its README. This repository remains **private** pending
-an explicit upstream license or verifiable permission covering the intended
-redistribution. A credit or GitHub fork relationship does not define reuse terms.
-
-No blanket license is granted here for inherited code. Before public release,
-record the upstream permission/license, retain required notices, and apply only
-compatible terms to the new contributions. Dependencies retain their respective
-licenses; their versions remain pinned in the imported lockfile.
-
-The author can ask upstream to add a suitable license, or obtain explicit written
-permission. No message to the upstream author is sent by this project.
-See [GitHub's licensing guidance](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository).
+The original Worker was created by [50R1Paps](https://github.com/50R1Paps).
+Keep this attribution and the prominent README credit when sharing the project.
+The source snapshots and adaptations above document how this version was assembled.

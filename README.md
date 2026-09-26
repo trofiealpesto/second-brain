@@ -9,9 +9,10 @@ a Cloudflare account, and an AI client that supports remote MCP **write** tools.
 You do not need a home server, Proxmox, Hermes, Obsidian, or the macOS app.
 After the one-time technical setup, everyday use can happen entirely in your LLM.
 
-> Distribution preparation: this repository is private while upstream licensing
-> is clarified. See [provenance and licensing](docs/provenance.md). The Worker
-> derives from [50R1Paps/second-brain-worker](https://github.com/50R1Paps/second-brain-worker).
+> Credits: the Worker is based on the original work by
+> [50R1Paps](https://github.com/50R1Paps) in
+> [second-brain-worker](https://github.com/50R1Paps/second-brain-worker).
+> See [component provenance](docs/provenance.md) for the imported sources and adaptations.
 
 ## How it works
 
