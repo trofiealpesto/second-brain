@@ -1,5 +1,7 @@
 # Preparation verification record
 
+For the later live-cloud rehearsal, see [cloud validation](cloud-validation.md).
+
 Prepared on 2026-09-27. This records evidence from the independent copy, not a
 deployment or upgrade of the source author's installation.
 

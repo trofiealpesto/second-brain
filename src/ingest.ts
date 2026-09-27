@@ -19,6 +19,12 @@ const EMBEDDING_MODEL = "@cf/baai/bge-base-en-v1.5";
  */
 const VECTORIZE_DELETE_BATCH_SIZE = 100;
 
+/** Preserve valid existing IDs; long UTF-8 paths need Vectorize's 64-byte limit. */
+export async function chunkVectorId(fileKey: string, chunkIndex: number): Promise<string> {
+  const legacy = `${fileKey}:${chunkIndex}`;
+  return new TextEncoder().encode(legacy).length <= 64 ? legacy : sha256Hex(legacy);
+}
+
 type FetchFunction = typeof fetch;
 
 /** Delete vector ids in batches that stay within Vectorize's payload limit. */
@@ -311,15 +317,15 @@ export async function ingestCore(
     // 5. Upsert vectors into Vectorize (if available)
     let vectorIds: string[] = [];
     if (embeddings && env.VECTORIZE) {
-      const vectors = chunks.map((chunk, i) => ({
-        id: `${file_key}:${chunk.chunk_index}`,
+      const vectors = await Promise.all(chunks.map(async (chunk, i) => ({
+        id: await chunkVectorId(file_key, chunk.chunk_index),
         values: embeddings[i],
         metadata: {
           file_key,
           chunk_index: chunk.chunk_index,
           section: chunk.section,
         },
-      }));
+      })));
       await env.VECTORIZE.upsert(vectors);
       vectorIds = vectors.map((v) => v.id);
     }

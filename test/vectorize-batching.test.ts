@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { deleteVectorsInBatches } from "../src/ingest";
+import { chunkVectorId, deleteVectorsInBatches } from "../src/ingest";
 
 /**
  * Vectorize rejects deleteByIds payloads larger than 100 ids with
@@ -26,6 +26,27 @@ function fakeVectorize() {
 }
 
 const ids = (n: number) => Array.from({ length: n }, (_, i) => `chunk:${i}`);
+
+describe("Vectorize ID compatibility", () => {
+  it("preserves existing IDs up to the 64-byte boundary", async () => {
+    expect(await chunkVectorId("index.md", 0)).toBe("index.md:0");
+    expect(await chunkVectorId("a".repeat(62), 0)).toBe("a".repeat(62) + ":0");
+  });
+
+  it("bounds Siri voice paths with stable distinct IDs for each chunk", async () => {
+    const path = "raw/voice/2026-09-27/synthetic-voice-note-12345678-1234-1234-1234-123456789abc.md";
+    const first = await chunkVectorId(path, 0);
+    expect(first).toMatch(/^[0-9a-f]{64}$/);
+    expect(await chunkVectorId(path, 0)).toBe(first);
+    expect(await chunkVectorId(path, 1)).not.toBe(first);
+    expect(await chunkVectorId(path + ".md", 0)).not.toBe(first);
+  });
+
+  it("measures UTF-8 bytes rather than character count", async () => {
+    const path = "é".repeat(32);
+    expect(await chunkVectorId(path, 0)).toMatch(/^[0-9a-f]{64}$/);
+  });
+});
 
 describe("deleteVectorsInBatches", () => {
   it("splits payloads over the 100-id limit", async () => {

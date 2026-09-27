@@ -83,6 +83,9 @@ entire file key as one URL component; keep the existing API's field names.
 - A move does not delete its source if destination GitHub write-back fails.
 - Webhook and reindex paths do not write content back to GitHub.
 - The contract page stays synchronized and accessible to remote-only clients.
+- Vector IDs exceeding Vectorize's 64-byte limit use a stable SHA-256 ID. Short
+  existing IDs and all page paths remain unchanged; retrieval uses the original
+  file key in metadata. This fixes indexing of long Siri voice-capture paths.
 - Siri's replica callback is `secondbrain-replica://oauth/callback`; its API
   routes are unchanged. Bundle, credentials, and local caches are isolated.
 

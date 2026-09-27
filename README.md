@@ -77,3 +77,4 @@ This repository is a separate development source. Cloning, committing, or pushin
 it does not upgrade an existing Worker, change a vault, or install anything on a
 server. Existing installations stay on their current release until their owner
 deliberately plans and performs an upgrade. See [the isolation boundary](docs/architecture.md#isolation-boundary).
+For an explicitly requested migration, follow [the upgrade procedure](docs/upgrading.md).
