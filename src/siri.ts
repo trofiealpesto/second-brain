@@ -359,7 +359,7 @@ async function doArchive(
   );
 }
 
-async function projectUpsert(
+export async function projectUpsert(
   env: Env,
   fileKey: string,
   content: string,
@@ -664,7 +664,7 @@ function touchUpdated(content: string) {
   return setFrontmatterField(content, "updated", new Date().toISOString().slice(0, 10));
 }
 
-function frontmatterValue(content: string, field: string): string | null {
+export function frontmatterValue(content: string, field: string): string | null {
   const match = content.match(new RegExp(`^${field}:\\s*["']?(.+?)["']?\\s*$`, "m"));
   return match?.[1]?.trim() ?? null;
 }

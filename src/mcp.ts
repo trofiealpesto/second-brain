@@ -11,6 +11,7 @@ import {
 } from "./ingest";
 import { readCore } from "./read";
 import { grepCore } from "./grep";
+import { appendLogCore, editPageCore } from "./wiki-edit";
 import type { Props } from "./oauth-utils";
 import { isAllowedGitHubLogin } from "./auth";
 
@@ -468,6 +469,64 @@ export class SecondBrainMCP extends McpAgent<
             {
               type: "text",
               text: `Found ${result.total} match(es) in ${params.file_key}:\n\n${formatted}`,
+            },
+          ],
+        };
+      },
+    );
+
+    this.server.tool(
+      "edit",
+      "Change part of an existing wiki page without rewriting it: replaces the one exact occurrence of old_text with new_text in the latest copy on GitHub, bumps `updated`, commits and re-indexes. Prefer this over ingest for any change to an existing page: you only need to read the part you change (read/grep), not the whole page. To add a section, use the line it should follow as old_text and repeat that line at the start of new_text. Fails without writing if old_text is missing or appears more than once.",
+      {
+        file_key: z
+          .string()
+          .describe("Repo-relative page path, e.g. 'entities/foo.md' (no 'wiki/' prefix)."),
+        old_text: z
+          .string()
+          .describe("Exact text currently in the page, including whitespace; must occur exactly once."),
+        new_text: z.string().describe("Replacement text (may be empty to delete old_text)."),
+      },
+      async (params) => {
+        const result = await editPageCore(this.env, params);
+        if (!result.ok) {
+          return {
+            content: [{ type: "text", text: `Edit refused (${result.code}): ${result.message}` }],
+            isError: true,
+          };
+        }
+        return {
+          content: [
+            {
+              type: "text",
+              text: `Edited ${result.file_key}${result.index_pending ? " (saved on GitHub; search index refresh queued)" : ""}`,
+            },
+          ],
+        };
+      },
+    );
+
+    this.server.tool(
+      "append_log",
+      "Add one entry to the top of the wiki's log.md (newest first) without reading or rewriting the file. Use it instead of editing log.md. Write the entry in the log's format, e.g. '- 2026-10-29 — [Agent] what changed and why ([[entities/foo]])'.",
+      {
+        entry: z
+          .string()
+          .describe("The full entry text (one or a few lines, max 4000 characters)."),
+      },
+      async (params) => {
+        const result = await appendLogCore(this.env, params.entry);
+        if (!result.ok) {
+          return {
+            content: [{ type: "text", text: `append_log refused (${result.code}): ${result.message}` }],
+            isError: true,
+          };
+        }
+        return {
+          content: [
+            {
+              type: "text",
+              text: `Logged in log.md${result.index_pending ? " (saved on GitHub; search index refresh queued)" : ""}`,
             },
           ],
         };

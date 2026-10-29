@@ -30,7 +30,7 @@ Never point this scenario at an existing personal installation.
 
 1. Follow setup.md from an empty account/resource set; bootstrap all template pages.
 2. Connect a real MCP client through GitHub OAuth with an allowed test login.
-   Confirm the seven tools. Confirm an unlisted login cannot use them.
+   Confirm the nine tools. Confirm an unlisted login cannot use them.
 3. Ask the client to read SCHEMA.md/index.md and explain the conventions.
 4. Create a synthetic concept, link it from index.md, and append to log.md.
    Verify every write result and the canonical GitHub commits.

@@ -1,6 +1,7 @@
 # Interfaces and compatibility
 
-The public-copy preparation preserves the Worker routes and seven MCP tool names.
+The public-copy preparation preserves the Worker routes and the seven original MCP
+tool names; `edit` and `append_log` were added afterwards.
 The private vault root is the file-key root: `concepts/example.md`, `index.md`,
 `SCHEMA.md`. The inherited ingestion guard also strips a leading `wiki/` prefix;
 new clients should always use the canonical root-relative form.
@@ -18,9 +19,20 @@ GitHub OAuth, explicit login allowlist, Streamable HTTP.
 | `move` | `from_file_key`, `to_file_key`, optional `content` | Create destination, then remove source; update links separately |
 | `delete` | `file_key`, optional `push_to_github` | Remove indexed file and, by default, its canonical Wiki Page |
 | `reindex` | optional `file_key` | Rebuild one/all indexed files from R2 |
+| `edit` | `file_key`, `old_text`, `new_text` | Replace the single exact occurrence of `old_text` in the latest vault copy, bump `updated`, commit, index |
+| `append_log` | `entry` (max 4000 chars) | Insert one entry at the top of `log.md` (above the newest entry), commit, index |
 
 `file_type` is `wiki_page` or `ingested`. MCP returns model-readable text; callers
 must honor `isError`. A failed write-back returns an explicit partial result.
+
+`edit` and `append_log` let agents change existing pages without reading and
+re-sending them through `ingest`, which replaces the whole file. Both read the
+current file from the vault branch and write it back with that file's SHA; when
+another writer lands in between (HTTP 409/422) they re-read and re-apply, up to
+three attempts. `edit` refuses without writing when `old_text` is missing or
+ambiguous, and does not accept `log.md` or `wiki/`-prefixed keys. If indexing
+fails after the commit, the page joins the five-minute projection retry queue
+and the tool reports the refresh as queued.
 
 ## Automation REST: `/api/*`
 
