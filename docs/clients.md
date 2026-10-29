@@ -4,8 +4,9 @@ Use your own Worker URL, ending in `/mcp`, with Streamable HTTP and GitHub OAuth
 The account you authorize must appear in `ALLOWED_GITHUB_LOGINS`. The vault-writing
 PAT stays in the Worker; it is never a client credential.
 
-The expected tools are `retrieve`, `read`, `grep`, `ingest`, `move`, `delete`, and
-`reindex`. A read-only knowledge/search connector cannot maintain this wiki.
+The expected tools are `retrieve`, `read`, `grep`, `ingest`, `edit`, `append_log`,
+`move`, `delete`, and `reindex`. A read-only knowledge/search connector cannot
+maintain this wiki.
 All allowed users share the same vault and server capabilities; restricting tools
 in a client is not a server-side per-user authorization policy.
 

@@ -10,8 +10,8 @@ deployment or upgrade of the source author's installation.
 | Check | Result / scope |
 | --- | --- |
 | TypeScript | `npm run typecheck` passes |
-| Worker suite | 136 tests across 15 files; emulated D1/R2, synthetic values, outbound HTTP blocked except explicit mocks |
-| MCP client protocol | SDK client discovers seven tools, reads/updates SCHEMA.md, and receives `isError` on partial GitHub failure |
+| Worker suite | 150 tests across 16 files; emulated D1/R2, synthetic values, outbound HTTP blocked except explicit mocks |
+| MCP client protocol | SDK client discovers nine tools, reads/updates SCHEMA.md, and receives `isError` on partial GitHub failure |
 | GitHub configuration | Mocked writes/deletes and Siri Git commits target a different owner/repository and a non-main branch |
 | Signed push webhook | Synthetic contract/page/index/log import, updates, rename/delete, and no GitHub write-back loop |
 | Autosync | Disposable local Git repositories: edit → commit → push, clean checkout, unchanged second run |

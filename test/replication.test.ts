@@ -130,7 +130,7 @@ describe("replica client interfaces", () => {
     await server.connect(serverTransport);
     await client.connect(clientTransport);
     try {
-      expect((await client.listTools()).tools.map(t => t.name).sort()).toEqual(["delete", "grep", "ingest", "move", "read", "reindex", "retrieve"]);
+      expect((await client.listTools()).tools.map(t => t.name).sort()).toEqual(["append_log", "delete", "edit", "grep", "ingest", "move", "read", "reindex", "retrieve"]);
       vi.stubGlobal("fetch", vi.fn(async (_url: string, init?: RequestInit) => init?.method
         ? Response.json({ content: { sha: "new-sha" } })
         : new Response(null, { status: 404 })));
